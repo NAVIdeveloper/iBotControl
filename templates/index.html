@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero-section py-3 py-md-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-lg-6 pt-3 mb-5 mb-lg-0">
+				<h1 class="site-headline font-weight-bold mb-3">{{info.slide_title}}</h1>
+				<div class="site-tagline mb-4">{{info.slide_text}}</div>
+				<div class="cta-btns mb-lg-3">
+					<a class="btn btn-primary me-2 mb-3" href="{% url 'login' %}">Tekinga boshlash<i
+							class="fas fa-arrow-alt-circle-right ms-2"></i></a>
+					<a class="btn btn-secondary mb-3" href="{% url 'about' %}">Hujatlarni ko'rish<i
+							class="fas fa-arrow-alt-circle-right ms-2"></i></a>
+				</div>
+			</div>
+			<div class="col-12 col-lg-6 text-center">
+				<img class="hero-figure mx-auto" src="{{info.slide_image.url}}" alt="">
+			</div>
+		</div><!--//row-->
+	</div>
+</section><!--//hero-section-->
+
+<section class="benefits-section theme-bg-light py-5">
+
+	<div class="container">
+		<h3 class="mb-3 text-center font-weight-bold section-title">Kompyuter foydalanuvchilari uchun</h3>
+		<div class="mb-5 text-center section-intro">Xususiyatlar</div>
+		<div class="row">
+			{% for i in info.abilitys.all %}
+			<div class="item col-12 col-md-6 col-lg-3">
+				<div class="item-inner rounded">
+					<div class="icon-holder text-center mx-auto mb-3">
+						<i class="{{i.icon_name}}"></i>
+					</div><!--//icon-holder-->
+					<h5 class="mb-3">{{i.title}}</h5>
+					<div>{{i.text}}</div>
+					<div class="mt-2"><a class="text-link" href="{{i.video_example}}">Batafsil &rarr;</a></div>
+				</div><!--//item-inner-->
+			</div><!--//item-->
+			{% endfor %}
+
+		</div><!--//row-->
+
+	</div>
+
+</section><!--//benefits-section-->
+
+<section class="how-section py-5">
+	<div class="container">
+		<h3 class="mb-3 text-center font-weight-bold section-title">Qanday foydalaniladi</h3>
+		<div class="mb-5 text-center section-intro">Siz faqat {{count_step}} ta bosqichda dasturdan foydalanasiz</div>
+
+		<div class="row">
+			{% for i in info.start_step.all %}
+			<div class="item col-12 col-md-4">
+				<div class="icon-holder">
+					<img src="{{i.image.url}}" alt="">
+					<div class="arrow-holder d-none d-lg-inline-block"></div>
+				</div><!--//icon-holder-->
+				<div class="desc p-3">
+					<h5><span class="step-count me-2">{{i.number}}</span>{{i.title}}</h5>
+					<p>{{i.text}}</p>
+				</div><!--//desc-->
+			</div><!--//item-->
+			{% endfor %}
+		</div><!--//row-->
+	</div><!--//container-->
+</section><!--//how-section-->
+
+<div class="container">
+	<hr>
+</div>
+
+
+{% endblock content %}
