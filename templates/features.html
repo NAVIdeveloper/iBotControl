@@ -2,6 +2,10 @@
 {% load static %}
 
 {% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
+<!-- Add syntax highlighting script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 
 <div class="page-content py-5">
 	<div class="container-fluid">
@@ -51,7 +55,7 @@
 							<div class="col-12 col-md-6 ms-lg-auto">
 								<div class="content-figure">
 									<div class="ratio ratio-16x9">
-										<iframe src="https://www.youtube.com/embed/u21W_tfPVrY" frameborder="0"
+										<iframe src="{{doc.video_url}}" frameborder="0"
 											allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 											allowfullscreen></iframe>
 									</div>
@@ -62,6 +66,40 @@
 					{% endfor %}
 				</div><!--//row-->
 			</div><!--//feature-1-pane-->
+			<!DOCTYPE html>
+			<!-- Add syntax highlighting style sheet -->
+
+			<style>
+				.sbody {
+					font-family: Arial, Helvetica, sans-serif;
+				}
+
+				.sbody h1 {
+					text-align: center;
+					margin-top: 50px;
+				}
+
+				.sbody .item {}
+
+				.sbody pre {
+					background-color: #F5F7FA;
+					padding: 10px;
+					border-radius: 5px;
+					overflow: auto;
+				}
+			</style>
+
+			<div class="sbody">
+				<h1>Foydalanish uchun qo'llanma</h1>
+
+				{% for i in commands %}
+				<div class="item">
+					<h2>{{i.title}}</h2>
+					<p>{{i.text}}</p>
+					<pre><code class="bat">{{i.command}}</code></pre>
+				</div>
+				{% endfor %}
+			</div>
 
 		</div>
 	</div><!--//container-->

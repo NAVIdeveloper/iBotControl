@@ -17,3 +17,4 @@ admin.site.register(QueryAnswer)
 
 admin.site.register(Pricing)
 admin.site.register(Doc)
+admin.site.register(Command_Doc)

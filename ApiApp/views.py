@@ -74,7 +74,7 @@ def Api_check_bot(request):
 def Home_Page(request):
     DATA = {
         "info":Info.objects.last(),
-        "count_step":len(Info.objects.last().start_step.all())
+        "count_step":len(Info.objects.last().start_step.all()),
     }
 
     return render(request,'index.html',DATA)
@@ -83,6 +83,7 @@ def About_Page(request):
     DATA = {
         "info":Info.objects.last(),
         "docs":Doc.objects.all(),
+        "commands":Command_Doc.objects.all(),
     }
 
     return render(request,'features.html',DATA)
@@ -105,13 +106,13 @@ def Contact_Page(request):
         message = request.POST['message']
         c = Contact.objects.create(ism=name,contact=email,message=message)
         return redirect('home')
-    
+
     return render(request,'contact.html',DATA)
 
 def Login_Page(request):
     if request.user.is_authenticated:
         return redirect('home')
-    
+
     DATA = {
         "info":Info.objects.last(),
     }
@@ -130,7 +131,7 @@ def Login_Page(request):
 def Reg_Page(request):
     if request.user.is_authenticated:
         return redirect('home')
-    
+
     DATA = {
         "info":Info.objects.last(),
     }
@@ -161,7 +162,7 @@ def Logout(request):
 def Profile_Page(request):
     if request.user.is_authenticated == False:
         return redirect('home')
-    
+
     DATA = {
         "info":Info.objects.last(),
         "user":request.user,

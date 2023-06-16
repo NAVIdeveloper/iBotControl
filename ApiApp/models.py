@@ -36,7 +36,7 @@ class StartStep(models.Model):
     def __str__(self):
         return self.title
 
-    
+
 
 class Info(models.Model):
     logo = models.FileField(upload_to='files')
@@ -82,4 +82,12 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.ism
+
+class Command_Doc(models.Model):
+    title=models.CharField(max_length=255)
+    text = models.TextField()
+    command = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title
 
