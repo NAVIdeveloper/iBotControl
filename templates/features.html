@@ -13,7 +13,7 @@
 			<li class="nav-item">
 				<a class="nav-link active" id="feature-tab-1" data-bs-toggle="tab" href="" role="tab"
 					aria-controls="feature-1" aria-selected="true"><i
-						class="fas fa-shapes me-2 d-none d-lg-inline-block"></i><span>Foydalanish<small
+						class="fas fa-shapes me-2 d-none d-lg-inline-block"></i><span>Using<small
 							class="d-none d-lg-inline font-weight-normal">(Test)</small></span></a>
 			</li>
 
@@ -44,8 +44,8 @@
 										</div><!--//tech-icons-->
 										{% if doc.program %}
 										<div class="cta-link"><a class="btn btn-light" href="{{doc.program.url}}"
-												download>Dasturni yuklab
-												olish<i class="	fas fa-cloud-download-alt ms-2"></i></a>
+												download>Download the Program<i
+													class="	fas fa-cloud-download-alt ms-2"></i></a>
 										</div>
 										{% endif %}
 									</div><!--//desc-->
@@ -90,13 +90,17 @@
 			</style>
 
 			<div class="sbody">
-				<h1>Foydalanish uchun qo'llanma</h1>
+				<h1>Commands documentation to use</h1>
 
 				{% for i in commands %}
 				<div class="item">
 					<h2>{{i.title}}</h2>
 					<p>{{i.text}}</p>
-					<pre><code class="bat">{{i.command}}</code></pre>
+					<div id="copy"
+						onclick="navigator.clipboard.writeText(this.innerText);this.setAttribute('class','ani')">
+						<pre><code class="bat">{{i.command}}</code></pre>
+
+					</div>
 				</div>
 				{% endfor %}
 			</div>

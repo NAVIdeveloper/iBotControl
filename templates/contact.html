@@ -9,32 +9,31 @@
 			<form action="" method="post" id="contact-form"
 				class="contact-form p-5 col-lg-9 mx-lg-auto theme-bg-light shadow">
 				{% csrf_token %}
-				<h3 class="text-center">Savol bering</h3>
-				<div class="mb-3 text-center">Quyidagilarni to'ldirib bizga savolingizni yo'llang
+				<h3 class="text-center">Ask a question</h3>
+				<div class="mb-3 text-center">Send us your question by filling out the form below
 				</div>
 				<div class="row g-3">
 					<div class="col-md-6">
-						<label class="sr-only" for="cname">Ism</label>
-						<input type="text" class="form-control" id="cname" name="name" placeholder="Ism" minlength="2"
-							required="">
+						<label class="sr-only" for="cname">Your Name</label>
+						<input type="text" class="form-control" id="cname" name="name" placeholder="your name"
+							minlength="2" required="">
 					</div>
 					<div class="col-md-6">
-						<label class="sr-only" for="cemail">Email yoki telefon raqam</label>
+						<label class="sr-only" for="cemail">Email or phone number</label>
 						<input type="email" class="form-control" id="cemail" name="email"
-							placeholder="Email yoki telefon raqam" required="">
+							placeholder="Email or phone number" required="">
 					</div>
 
 					<div class="col-12">
-						<label class="sr-only" for="cmessage">Xabar</label>
-						<textarea class="form-control" id="cmessage" name="message" placeholder="Xabar" rows="10"
+						<label class="sr-only" for="cmessage">Message</label>
+						<textarea class="form-control" id="cmessage" name="message" placeholder="Message" rows="10"
 							required=""></textarea>
 					</div>
 					<div class="col-12">
-						<button type="submit" class="btn w-100 btn-primary py-2">Yuborish</button>
+						<button type="submit" class="btn w-100 btn-primary py-2">Send</button>
 					</div>
 				</div><!--//form-row-->
 			</form>
 		</div><!--//container-->
 	</section><!--//contact-form-section-->
-
 	{% endblock content %}
